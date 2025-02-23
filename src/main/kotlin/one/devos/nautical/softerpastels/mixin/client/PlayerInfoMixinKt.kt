@@ -40,9 +40,10 @@ abstract class PlayerInfoMixinKt {
         if (!`softerpastels$texturesLoaded` && CapeUtils.INSTANCE.useDevCape(profile!!.id)) {
             `softerpastels$texturesLoaded` = true
             val original = this.skinLookup
+            val devCape = DEV_CAPE
             this.skinLookup = Supplier {
                 val originalResult = original!!.get()
-                PlayerSkin(originalResult.texture(), originalResult.textureUrl(), DEV_CAPE, originalResult.elytraTexture(), originalResult.model(), originalResult.secure())
+                PlayerSkin(originalResult.texture(), originalResult.textureUrl(), devCape, originalResult.elytraTexture(), originalResult.model(), originalResult.secure())
             }
         }
     }
